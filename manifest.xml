@@ -2,14 +2,14 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD component 1.0//EN"
 "http://joomla.org/xml/dtd/1.5/component-install.dtd">
 <install type="component" version="1.5.0">
-  <name>madrona</name>
+  <name>Madrona</name>
   <creationDate>1/28/2012</creationDate>
   <author>Bruce Davidson</author>
   <authorEmail>darkoverlordofdata@gmail.com</authorEmail>
   <authorUrl>darkoverlordofdata.blogspot.com</authorUrl>
   <copyright>Copyright (C) 2012 DarkOverlordOfData</copyright>
   <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <releaseDate>{releaseDate}</releaseDate>
   <description>Madrona CRM Plus</description>
   <installfile />
