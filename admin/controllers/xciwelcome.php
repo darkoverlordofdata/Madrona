@@ -17,7 +17,6 @@ class XciWelcome extends CI_Controller {
    function __construct()
    {
       parent::__construct();
-      log_message('debug', 'XciWelcome::__construct');
       
    }
 

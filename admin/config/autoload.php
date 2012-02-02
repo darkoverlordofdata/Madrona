@@ -77,7 +77,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation', 'messag
 */
 
 //$autoload['helper'] = array('url','toolbar','joomla');
-$autoload['helper'] = array('url', 'toolbar','joomla', 'path', 'html', 'form', 'date', 'file', 'access', 'custom', 'user');
+$autoload['helper'] = array('url', 'toolbar','joomla', 'path', 'html', 'form', 'date', 'file', 'access', 'custom');
 
 /*
 | -------------------------------------------------------------------

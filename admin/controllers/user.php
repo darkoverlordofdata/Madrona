@@ -22,9 +22,7 @@ class User extends CI_Controller {
      */
     function __construct()
     {
-        log_message('debug', 'User::__construct');
         parent::__construct();
-        auto_login();
     }
     
     function index()
@@ -221,7 +219,6 @@ class User extends CI_Controller {
 
     function profile()
     {
-        log_message('debug', 'User::profile');
         
         xDeveloperToolBars::getDefaultToolBar();
         $this->template->set('page_title', 'User Profile');
@@ -229,16 +226,13 @@ class User extends CI_Controller {
         /* Check access */
         if ( ! ($this->session->userdata('user_name')))
         {
-            log_message('debug', 'Permission denied');
             $this->messages->add('Permission denied.', 'error');
             redirect('');
             return;
         }
 
-        log_message('debug', 'user_template');
 
         $this->template->load('user_template', 'user/profile');
-        log_message('debug', 'return');
         return;
     }
 }
