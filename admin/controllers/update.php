@@ -15,9 +15,14 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class Update extends CI_Controller {
 
+    function __construct()
+    {
+        parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
+    }
+
 	function index()
 	{
-		$this->load->library('general');
 
 		/* Common functionality from Startup library */
 
@@ -101,7 +106,7 @@ class Update extends CI_Controller {
 			redirect('update/index');
 			return;
 		}
-		$this->template->load('user_template', 'update/index', $data);
+		$this->template->load('template', 'update/index', $data);
 		return;
 	}
 

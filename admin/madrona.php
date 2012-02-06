@@ -39,6 +39,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 //        define('xVIEW', $xview.".".$xformat);
 //        define('xLAYOUT_VIEW',$xview."/tmpl/".$xlayout);
 
+define('COMPONENT_NAME', 'com_madrona');
 
 /*
  *---------------------------------------------------------------

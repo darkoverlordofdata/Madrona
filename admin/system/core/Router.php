@@ -112,6 +112,7 @@ class CI_Router {
 		// Were there any query string segments?  If so, we'll validate them and bail out since we're done.
 		if (count($segments) > 0)
 		{
+		    log_message('debug', "RETURNING FROM ROUTER");
 			return $this->_validate_request($segments);
 		}
 

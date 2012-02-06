@@ -18,6 +18,7 @@ class Tag extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
     }
 
 	function index()
@@ -171,7 +172,7 @@ class Tag extends CI_Controller {
 		));
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1) {
 			$this->messages->add('Invalid Tag.', 'error');
@@ -285,7 +286,7 @@ class Tag extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1) {
 			$this->messages->add('Invalid Tag.', 'error');

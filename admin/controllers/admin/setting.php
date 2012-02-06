@@ -18,6 +18,7 @@ class Setting extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -77,7 +78,7 @@ class Setting extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/setting', $data);
+			$this->template->load('template', 'admin/setting', $data);
 			return;
 		}
 		else
@@ -88,7 +89,7 @@ class Setting extends CI_Controller {
 			if ($data_row_count < 0 || $data_row_count > 200)
 			{
 				$this->messages->add('Invalid number of rows.', 'error');
-				$this->template->load('admin_template', 'admin/setting');
+				$this->template->load('template', 'admin/setting');
 				return;
 			}
 
@@ -106,7 +107,7 @@ class Setting extends CI_Controller {
 			{
 				$this->messages->add('Failed to update settings file. Check if "' . $ini_file . '" file is writable.', 'error');
 				$this->messages->add('You can manually create a text file "' . $ini_file . '" with the following content :<br /><br />' . $new_setting_html, 'error');
-				$this->template->load('admin_template', 'admin/setting', $data);
+				$this->template->load('template', 'admin/setting', $data);
 				return;
 			} else {
 				$this->messages->add('General settings updated.', 'success');

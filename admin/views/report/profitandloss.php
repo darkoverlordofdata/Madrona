@@ -22,7 +22,6 @@
 		$gross_expense_total = float_ops($gross_expense_total, $gross_expense->total, '+');
 	}
 	echo "</table>";
-	echo "</td>";
 
 	/* Gross P/L : Incomes */
 	$gross_income_total = 0;
@@ -30,7 +29,7 @@
 	$gross_income_list_q = $this->db->get();
 	echo "<td width=\"" . $right_width . "\">";
 	echo "<table border=0 cellpadding=5 class=\"simple-table profit-loss-table\" width=\"100%\">";
-	echo "<thead><tr><th>Incomes (Gross)</th><th align=\"right\">Amount</th></tr></thead>";
+	echo "<thead><tr><th>Funding (Gross)</th><th align=\"right\">Amount</th></tr></thead>";
 	foreach ($gross_income_list_q->result() as $row)
 	{
 		$gross_income = new Accountlist();
@@ -82,7 +81,7 @@
 	echo "<td>";
 	echo "<table border=0 cellpadding=5 class=\"simple-table profit-loss-total-table\" width=\"100%\">";
 	echo "<tr valign=\"top\">";
-	echo "<td class=\"bold\">Total Gross Incomes</td>";
+	echo "<td class=\"bold\">Total Gross Funding</td>";
 	echo "<td align=\"right\" class=\"bold\">" . convert_cur($gross_income_total) . "</td>";
 	echo "</tr>";
 	if ($grosspl > 0)
@@ -136,7 +135,7 @@
 	$net_income_list_q = $this->db->get();
 	echo "<td>";
 	echo "<table border=0 cellpadding=5 class=\"simple-table profit-loss-table\" width=\"100%\">";
-	echo "<thead><tr><th>Incomes (Net)</th><th align=\"right\">Amount</th></tr></thead>";
+	echo "<thead><tr><th>Funding (Net)</th><th align=\"right\">Amount</th></tr></thead>";
 	foreach ($net_income_list_q->result() as $row)
 	{
 		$net_income = new Accountlist();
@@ -201,7 +200,7 @@
 	echo "<td>";
 	echo "<table border=0 cellpadding=5 class=\"simple-table profit-loss-total-table\" width=\"100%\">";
 	echo "<tr valign=\"top\">";
-	echo "<td class=\"bold\">Total Incomes</td>";
+	echo "<td class=\"bold\">Total Funding</td>";
 	echo "<td align=\"right\" class=\"bold\">" . convert_cur($nettotal) . "</td>";
 	echo "</tr>";
 	if ($grosspl > 0)

@@ -163,7 +163,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  */
 	$URI =& load_class('URI', 'core');
         $GLOBALS['URI']=$URI;
-
 /*
  * ------------------------------------------------------
  *  Instantiate the routing class and set the routing
@@ -172,7 +171,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	$RTR =& load_class('Router', 'core');
         $GLOBALS['RTR']=$RTR;
 	$RTR->_set_routing();
-
+    
 	// Set any routing overrides that may exist in the main index file
 	if (isset($routing))
 	{
@@ -299,6 +298,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  *  Call the requested method
  * ------------------------------------------------------
  */
+
 	// Is there a "remap" function? If so, we call it instead
 	if (method_exists($CI, '_remap'))
 	{

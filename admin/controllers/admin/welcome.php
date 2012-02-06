@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -43,7 +44,8 @@ class Welcome extends CI_Controller {
 			$this->messages->add('One or more problems were detected with your installation. Check the ' . anchor('admin/status', 'Status report', array('title' => 'Check Status report', 'class' => 'anchor-link-a')) . ' for more information.', 'error');
 		}
 
-		$this->template->load('admin_template', 'admin/welcome');
+//		$this->template->load('admin_template', 'admin/welcome');
+        $this->template->load('template', 'admin/welcome');
 		return;
 	}
 }

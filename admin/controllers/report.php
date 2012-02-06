@@ -21,6 +21,7 @@ class Report extends CI_Controller {
    function __construct()
    {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Ledger_model');
 
 		/* Check access */
@@ -53,7 +54,7 @@ class Report extends CI_Controller {
 
 	function profitandloss($period = NULL)
 	{
-		$this->template->set('page_title', 'Profit And Loss Statement');
+		$this->template->set('page_title', 'Statement of Activities');
 		$this->template->set('nav_links', array('report/download/profitandloss' => 'Download CSV', 'report/printpreview/profitandloss' => 'Print Preview'));
 		$data['left_width'] = "450";
 		$data['right_width'] = "450";

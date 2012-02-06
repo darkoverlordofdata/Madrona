@@ -18,6 +18,7 @@ class Status extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -37,7 +38,7 @@ class Status extends CI_Controller {
 		$statuscheck = new Statuscheck(); 
 		$statuscheck->check_permissions();
 		$data['error_messages'] = $statuscheck->error_messages;
-		$this->template->load('admin_template', 'admin/status', $data);
+		$this->template->load('template', 'admin/status', $data);
 		return;
 	}
 }

@@ -1,6 +1,8 @@
 <?php
 	echo form_open('setting/account');
 
+    echo '<div id="left-col">';
+
 	echo "<p>";
 	echo form_label('Account Name', 'account_name');
 	echo "<br />";
@@ -18,6 +20,24 @@
 	echo "<br />";
 	echo form_input($account_email);
 	echo "</p>";
+
+
+    echo "<p>";
+    echo "<span id=\"tooltip-target-1\">";
+    echo form_checkbox('account_locked', 1, $account_locked) . " Account Locked";
+    echo "</span>";
+    echo "<span id=\"tooltip-content-1\">If enabled prevents any further modifications to the account. Makes the account read-only.</span>";
+    echo "</p>";
+
+    echo "<p>";
+    echo form_submit('submit', 'Update');
+    echo " ";
+    echo anchor('setting', 'Back', 'Back to Settings');
+    echo "</p>";
+
+
+    echo '</div>';
+    echo '<div id="right-col">';
 
 	echo "<p>";
 	echo form_label('Currency', 'account_currency');
@@ -49,18 +69,7 @@
 	echo timezone_menu($account_timezone);
 	echo "</p>";
 
-	echo "<p>";
-	echo "<span id=\"tooltip-target-1\">";
-	echo form_checkbox('account_locked', 1, $account_locked) . " Account Locked";
-	echo "</span>";
-	echo "<span id=\"tooltip-content-1\">If enabled prevents any further modifications to the account. Makes the account read-only.</span>";
-	echo "</p>";
-
-	echo "<p>";
-	echo form_submit('submit', 'Update');
-	echo " ";
-	echo anchor('setting', 'Back', 'Back to Settings');
-	echo "</p>";
+    echo '</div>';
 
 	echo form_close();
 

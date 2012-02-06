@@ -14,6 +14,13 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 ?><?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Help extends CI_Controller {
+    
+    function __construct()
+    {
+        parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
+    }
+    
 	function index()
 	{
 		$this->template->set('page_title', 'Help');

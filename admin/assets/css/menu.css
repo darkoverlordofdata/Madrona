@@ -1,15 +1,16 @@
 /* MENU */
-#menu {
+
+#sf-menu {
 	background:none repeat scroll 0 0 #0099CC;
-	height:35px;
-	padding:0 0 0 18px;
+	height:25px;
+	padding:0 0 0 0;
 	color:#FFFFFF;
 }
 
 /*** ESSENTIAL STYLES ***/
 .sf-menu, .sf-menu * {
 	margin:0;
-	padding:0;
+	padding:0 0 0 0;;
 	list-style:none;
 }
 .sf-menu {
@@ -66,13 +67,14 @@ ul.sf-menu li li li.sfHover ul {
 }
 .sf-menu a {
 	border-left:1px solid #fff;
-	padding:.75em 1em;
+padding:.5em 1em; 
 	text-decoration:none;
-	font-size:120%;
+	font-size:100%;
+	font-weight: bold;
 }
 .sf-menu a.last {
 	border-right:1px solid #fff;
-	padding:.75em 1em;
+	padding:.5em 1em; 
 	text-decoration:none;
 }
 .sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/

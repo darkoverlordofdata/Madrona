@@ -5,7 +5,7 @@ body {
 	margin:0;
 	min-width:950px;
 	padding:0;
-	text-align:center;
+	//text-align:center;
 }
 
 #container {
@@ -16,7 +16,7 @@ body {
 
 #header {
 	background:none repeat scroll 0 0 #FFFFFF;
-	height:90px;
+	height:3px;
 	margin:0;
 	position:relative;
 	text-align:left;
@@ -68,7 +68,8 @@ body {
 
 #content #main #main-title {
 	font-size:19px;
-	padding:8px 0 8px 0;
+	padding:0px 0 18px 0;
+	font-weight: bold;
 }
 
 #content #main  #main-content {
@@ -171,6 +172,6 @@ a.no-underline {
 /* NOT SO COMMON */
 #beta-area {
 	font-size:18px;
-	color:#00000;
+	color:#000000;
 }
 

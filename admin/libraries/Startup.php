@@ -26,8 +26,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class Startup
 {
-    function Startup()
-    {
+	function Startup()
+	{
 
         $CI =& get_instance();
         $CI->load->library('general');
@@ -90,9 +90,9 @@ class Startup
         $CI->session->set_userdata('user_name', $data_user_name);
         $CI->session->set_userdata('user_role', $active_user['role']);
         $CI->session->set_userdata('active_account', $data_active_account);
-        
-        return;
-    }
+ 	    
+		return;
+	}
 }
 
 /* End of file startup.php */

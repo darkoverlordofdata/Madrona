@@ -15,14 +15,10 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class User extends CI_Controller {
     
-    /*
-     *  Auto login to Webzash as the current Joomla user
-     * 
-     * 
-     */
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
     }
     
     function index()
@@ -33,7 +29,7 @@ class User extends CI_Controller {
 
     function login()
     {
-        xDeveloperToolBars::getDefaultToolBar();
+        //xDeveloperToolBars::getDefaultToolBar();
         $this->template->set('page_title', 'Login');
         $this->load->library('general');
 
@@ -71,7 +67,7 @@ class User extends CI_Controller {
         if ($this->form_validation->run() == FALSE)
         {
             $this->messages->add(validation_errors(), 'error');
-            $this->template->load('user_template', 'user/login', $data);
+            $this->template->load('template', 'user/login', $data);
             return;
         }
         else
@@ -82,7 +78,7 @@ class User extends CI_Controller {
             /* Check user ini file */
             if ( ! $active_user = $this->general->check_user($data_user_name))
             {
-                $this->template->load('user_template', 'user/login', $data);
+                $this->template->load('template', 'user/login', $data);
                 return;
             }
 
@@ -90,7 +86,7 @@ class User extends CI_Controller {
             if ($active_user['status'] != 1)
             {
                 $this->messages->add('User disabled.', 'error');
-                $this->template->load('user_template', 'user/login', $data);
+                $this->template->load('template', 'user/login', $data);
                 return;
             }
 
@@ -107,7 +103,7 @@ class User extends CI_Controller {
                 $this->session->unset_userdata('user_role');
                 $this->session->unset_userdata('active_account');
                 $this->messages->add('Authentication failed.', 'error');
-                $this->template->load('user_template', 'user/login', $data);
+                $this->template->load('template', 'user/login', $data);
                 return;
             }
         }
@@ -126,7 +122,7 @@ class User extends CI_Controller {
 
     function account()
     {
-        xDeveloperToolBars::getDefaultToolBar();
+        //xDeveloperToolBars::getDefaultToolBar();
         $this->template->set('page_title', 'Change Account');
         //$this->load->library('general');
 
@@ -190,7 +186,7 @@ class User extends CI_Controller {
         if ($this->form_validation->run() == FALSE)
         {
             $this->messages->add(validation_errors(), 'error');
-            $this->template->load('user_template', 'user/account', $data);
+            $this->template->load('template', 'user/account', $data);
             return;
         } else {
             $data_active_account = $this->input->post('account', TRUE);
@@ -199,13 +195,13 @@ class User extends CI_Controller {
             if ( ! array_key_exists($data_active_account, $data['accounts']))
             {
                 $this->messages->add('Invalid account selected.', 'error');
-                $this->template->load('user_template', 'user/account', $data);
+                $this->template->load('template', 'user/account', $data);
                 return;
             }
 
             if ( ! $this->general->check_account($data_active_account))
             {
-                $this->template->load('user_template', 'user/account', $data);
+                $this->template->load('template', 'user/account', $data);
                 return;
             }
 
@@ -220,7 +216,7 @@ class User extends CI_Controller {
     function profile()
     {
         
-        xDeveloperToolBars::getDefaultToolBar();
+        //xDeveloperToolBars::getDefaultToolBar();
         $this->template->set('page_title', 'User Profile');
 
         /* Check access */
@@ -232,7 +228,8 @@ class User extends CI_Controller {
         }
 
 
-        $this->template->load('user_template', 'user/profile');
+//        $this->template->load('template', 'user/profile');
+        $this->template->load('template', 'user/profile');
         return;
     }
 }

@@ -15,6 +15,12 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class Log extends CI_Controller {
 
+    function __construct()
+    {
+        parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
+    }
+
 	function index()
 	{
 		$this->load->helper('text');

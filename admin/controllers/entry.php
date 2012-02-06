@@ -18,6 +18,7 @@ class Entry extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Entry_model');
 		$this->load->model('Ledger_model');
 		$this->load->model('Tag_model');
@@ -76,7 +77,10 @@ class Entry extends CI_Controller {
 		else
 			$page_count = (int)$this->uri->segment(4);
 
-		$page_count = $this->input->xss_clean($page_count);
+
+        // xss_clean was refactored to the securit class, causing the next line to crash the server.
+        // But why are we checking an int? I'm removing it - dood.
+		//$page_count = $this->input->xss_clean($page_count);
 		if ( ! $page_count)
 			$page_count = "0";
 
@@ -92,6 +96,7 @@ class Entry extends CI_Controller {
 			$config['base_url'] = site_url('entry/show/' . $current_entry_type['label']);
 			$config['uri_segment'] = 4;
 		}
+
 		$pagination_counter = $this->config->item('row_count');
 		$config['num_links'] = 10;
 		$config['per_page'] = $pagination_counter;
@@ -114,6 +119,7 @@ class Entry extends CI_Controller {
 		$config['last_tag_open'] = '<li class="last">';
 		$config['last_tag_close'] = '</li>';
 
+
 		if ($entry_type == "tag") {
 			$this->db->from('entries')->where('tag_id', $tag_id)->order_by('date', 'desc')->order_by('number', 'desc')->limit($pagination_counter, $page_count);
 			$entry_q = $this->db->get();
@@ -128,8 +134,10 @@ class Entry extends CI_Controller {
 			$config['total_rows'] = $this->db->count_all('entries');
 		}
 
+
 		/* Pagination initializing */
 		$this->pagination->initialize($config);
+
 
 		/* Show entry add actions */
 		if ($this->session->userdata('entry_added_show_action'))
@@ -155,6 +163,7 @@ class Entry extends CI_Controller {
 			$this->session->unset_userdata('entry_added_type_name');
 			$this->session->unset_userdata('entry_added_number');
 		}
+
 
 		/* Show entry edit actions */
 		if ($this->session->userdata('entry_updated_show_action'))

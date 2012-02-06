@@ -18,6 +18,7 @@ class EntryTypes extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Setting_model');
 
 		/* Check access */
@@ -212,6 +213,8 @@ class EntryTypes extends CI_Controller {
 
 	function edit($id)
 	{
+	 
+        log_message('debug', "CLASS EntryTypes::edit $id");   
 		$this->template->set('page_title', 'Edit Entry Type');
 
 		/* Check for account lock */
@@ -223,7 +226,7 @@ class EntryTypes extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 0)
 		{
@@ -400,7 +403,7 @@ class EntryTypes extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id <= 0)
 		{

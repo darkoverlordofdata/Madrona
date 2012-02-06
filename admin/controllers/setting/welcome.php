@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('change account settings'))

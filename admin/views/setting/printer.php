@@ -1,6 +1,7 @@
 <?php
 	echo form_open('setting/printer');
 
+    echo '<div id="left-col">';
 	echo "<p>";
 	echo form_fieldset('Paper Size', array('class' => "fieldset-auto-width"));
 
@@ -58,7 +59,15 @@
 
 	echo form_fieldset_close();
 	echo "</p>";
+    echo "<p>";
+    echo form_submit('submit', 'Update');
+    echo " ";
+    echo anchor('setting', 'Back', array('title' => 'Back to settings'));
+    echo "</p>";
+    
 
+    echo '</div>';
+    echo '<div id="right-col">';
 	echo "<p>";
 	echo form_fieldset('Orientation', array('class' => "fieldset-auto-width"));
 
@@ -85,11 +94,7 @@
 	echo form_fieldset_close();
 	echo "</p>";
 
-	echo "<p>";
-	echo form_submit('submit', 'Update');
-	echo " ";
-	echo anchor('setting', 'Back', array('title' => 'Back to settings'));
-	echo "</p>";
+    echo '</div>';
 
 	echo form_close();
 

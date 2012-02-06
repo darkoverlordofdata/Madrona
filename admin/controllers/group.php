@@ -18,6 +18,7 @@ class Group extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Group_model');
 		return;
 	}
@@ -150,7 +151,7 @@ class Group extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1) {
 			$this->messages->add('Invalid Group account.', 'error');
@@ -283,7 +284,7 @@ class Group extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1) {
 			$this->messages->add('Invalid Group account.', 'error');

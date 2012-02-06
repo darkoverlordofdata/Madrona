@@ -167,10 +167,25 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 |
 */
 $config['allow_get_array'] = TRUE;
-$config['enable_query_strings'] = true;
-$config['controller_trigger'] = 'view';
-$config['function_trigger'] = 'layout';
+$config['enable_query_strings'] = TRUE;
+$config['controller_trigger'] = 'c';//'view';
+$config['function_trigger'] = 'm';//'layout';
 $config['directory_trigger'] = 'd'; // experimental not currently in use
+
+/*
+|--------------------------------------------------------------------------
+| CodeIgniter Trigger;
+|--------------------------------------------------------------------------
+|
+| Query strings must be enabled for Joomla components.
+| But this breaks SEF URLs. The codeigniter_trigger treats the remainder
+| of the URL as a standard CodeIgniter segmented URL:
+|
+| ...index.php?option=com_name&ci=who/what/where/
+|| Directory trigger is not currently used, so we will hijack it
+|
+*/
+$config['codeigniter_trigger'] = 'ci'; // NOW codeigniter_trigger!
 
 /*
 |--------------------------------------------------------------------------

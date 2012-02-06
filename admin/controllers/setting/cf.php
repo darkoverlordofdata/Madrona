@@ -18,6 +18,7 @@ class Cf extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Setting_model');
 
 		/* Check access */

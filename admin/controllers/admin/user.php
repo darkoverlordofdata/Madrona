@@ -18,6 +18,7 @@ class User extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -52,7 +53,7 @@ class User extends CI_Controller {
 			}
 		}
 
-		$this->template->load('admin_template', 'admin/user/index', $data);
+		$this->template->load('template', 'admin/user/index', $data);
 		return;
 	}
 
@@ -136,7 +137,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/user/add', $data);
+			$this->template->load('template', 'admin/user/add', $data);
 			return;
 		}
 		else
@@ -157,7 +158,7 @@ class User extends CI_Controller {
 			if ( ! $data_accounts)
 			{
 				$this->messages->add('Please select account.', 'error');
-				$this->template->load('admin_template', 'admin/user/add', $data);
+				$this->template->load('template', 'admin/user/add', $data);
 				return;
 			} else {
 				if (in_array('(All Accounts)', $data_accounts))
@@ -176,7 +177,7 @@ class User extends CI_Controller {
 			if (get_file_info($ini_file))
 			{
 				$this->messages->add('Username already exists.', 'error');
-				$this->template->load('admin_template', 'admin/user/add', $data);
+				$this->template->load('template', 'admin/user/add', $data);
 				return;
 			}
 
@@ -188,7 +189,7 @@ class User extends CI_Controller {
 			{
 				$this->messages->add('Failed to add user. Check if "' . $ini_file . '" file is writable.', 'error');
 				$this->messages->add('You can manually create a text file "' . $ini_file . '" with the following content :<br /><br />' . $user_details_html, 'error');
-				$this->template->load('admin_template', 'admin/user/add', $data);
+				$this->template->load('template', 'admin/user/add', $data);
 				return;
 			} else {
 				$this->messages->add('Added user.', 'success');
@@ -325,7 +326,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/user/edit', $data);
+			$this->template->load('template', 'admin/user/edit', $data);
 			return;
 		}
 		else
@@ -345,7 +346,7 @@ class User extends CI_Controller {
 			if ( ! $data_accounts)
 			{
 				$this->messages->add('Please select account.', 'error');
-				$this->template->load('admin_template', 'admin/user/edit', $data);
+				$this->template->load('template', 'admin/user/edit', $data);
 				return;
 			} else {
 				if (in_array('(All Accounts)', $data_accounts))
@@ -368,7 +369,7 @@ class User extends CI_Controller {
 			{
 				$this->messages->add('Failed to edit user. Check if "' . $ini_file . '" file is writable.', 'error');
 				$this->messages->add('You can manually edit the text file "' . $ini_file . '" with the following content :<br /><br />' . $user_details_html, 'error');
-				$this->template->load('admin_template', 'admin/user/edit', $data);
+				$this->template->load('template', 'admin/user/edit', $data);
 				return;
 			} else {
 				$this->messages->add('Updated user.', 'success');

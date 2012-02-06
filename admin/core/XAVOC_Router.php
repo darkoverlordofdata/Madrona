@@ -23,7 +23,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  */
 class XAVOC_Router extends CI_Router{
     function _set_routing(){
-		global $xCICurrentExtension;
+        global $xCICurrentExtension;
                 global $xIMModule;
         @include(constant($xCICurrentExtension.'APPPATH').'config/routes'.EXT);
         $this->routes = ( ! isset($route) OR ! is_array($route)) ? array() : $route;
@@ -42,6 +42,29 @@ class XAVOC_Router extends CI_Router{
         }
         parent::_set_routing();
         unset($_GET[$this->config->item('controller_trigger')]);
+
+
+        /*
+         * Get the remaining parameters, stuff into the rsegments array that 
+         * is passed to the method. dood.
+         */
+        if ($xIMModule != true ){
+
+            foreach ($_GET as $k => $v) {
+                switch($k) {        //  Skip items already processed:
+                    case 'option':  //      ?option=com_<name>
+                    case 'd':       //      &d=<directory>
+                    case 'c':       //      &c=<class>
+                    case 'm':       //      &m=<method>
+                        break;
+                    default:        //  append into the router segment array
+                        if (sizeof($this->uri->rsegments) == 0) {
+                            $this->uri->rsegments = array('','');
+                        }
+                        $this->uri->rsegments[] = $v;
+                }
+            }
+        }
     }
 }
 ?>

@@ -18,6 +18,7 @@ class Create extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -190,7 +191,7 @@ class Create extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/create', $data);
+			$this->template->load('template', 'admin/create', $data);
 			return;
 		}
 		else
@@ -228,7 +229,7 @@ class Create extends CI_Controller {
 			if (get_file_info($ini_file))
 			{
 				$this->messages->add('Account with same label already exists.', 'error');
-				$this->template->load('admin_template', 'admin/create', $data);
+				$this->template->load('template', 'admin/create', $data);
 				return;
 			}
 
@@ -236,7 +237,7 @@ class Create extends CI_Controller {
 			if ($data_fy_end <= $data_fy_start)
 			{
 				$this->messages->add('Financial start date cannot be greater than end date.', 'error');
-				$this->template->load('admin_template', 'admin/create', $data);
+				$this->template->load('template', 'admin/create', $data);
 				return;
 			}
 
@@ -256,7 +257,7 @@ class Create extends CI_Controller {
 					if ($db_selected) {
 						mysql_close($new_link);
 						$this->messages->add('Database already exists.', 'error');
-						$this->template->load('admin_template', 'admin/create', $data);
+						$this->template->load('template', 'admin/create', $data);
 						return;
 					}
 
@@ -267,13 +268,13 @@ class Create extends CI_Controller {
 						$this->messages->add('Created account database.', 'success');
 					} else {
 						$this->messages->add('Error creating account database. ' . mysql_error(), 'error');
-						$this->template->load('admin_template', 'admin/create', $data);
+						$this->template->load('template', 'admin/create', $data);
 						return;
 					}
 					mysql_close($new_link);
 				} else {
 					$this->messages->add('Error connecting to database. ' . mysql_error(), 'error');
-					$this->template->load('admin_template', 'admin/create', $data);
+					$this->template->load('template', 'admin/create', $data);
 					return;
 				}
 			}
@@ -285,15 +286,15 @@ class Create extends CI_Controller {
 			if ( ! $newacc->conn_id)
 			{
 				$this->messages->add('Error connecting to database.', 'error');
-				$this->template->load('admin_template', 'admin/create', $data);
+				$this->template->load('template', 'admin/create', $data);
 				return;
 			} else if ($newacc->_error_message() != "") {
 				$this->messages->add('Error connecting to database. ' . $newacc->_error_message(), 'error');
-				$this->template->load('admin_template', 'admin/create', $data);
+				$this->template->load('template', 'admin/create', $data);
 				return;
 			} else if ($newacc->query("SHOW TABLES")->num_rows() > 0) {
 				$this->messages->add('Selected database in not empty.', 'error');
-				$this->template->load('admin_template', 'admin/create', $data);
+				$this->template->load('template', 'admin/create', $data);
 				return;
 			} else {
 				/* Executing the database setup script */
@@ -307,7 +308,7 @@ class Create extends CI_Controller {
 					if ($newacc->_error_message() != "")
 					{
 						$this->messages->add('Error initializing account database.', 'error');
-						$this->template->load('admin_template', 'admin/create', $data);
+						$this->template->load('template', 'admin/create', $data);
 						return;
 					}
 				}
@@ -326,7 +327,7 @@ class Create extends CI_Controller {
 					{
 						$newacc->trans_rollback();
 						$this->messages->add('Error initializing basic accounts data.', 'error');
-						$this->template->load('admin_template', 'admin/create', $data);
+						$this->template->load('template', 'admin/create', $data);
 						return;
 					}
 				}
@@ -339,7 +340,7 @@ class Create extends CI_Controller {
 				{
 					$newacc->trans_rollback();
 					$this->messages->add('Error adding account settings.', 'error');
-					$this->template->load('admin_template', 'admin/create', $data);
+					$this->template->load('template', 'admin/create', $data);
 					return;
 				} else {
 					$newacc->trans_complete();

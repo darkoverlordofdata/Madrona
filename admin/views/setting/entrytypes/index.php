@@ -23,3 +23,7 @@
 	?>
 	</tbody>
 </table>
+<p>
+<?php
+echo anchor('setting', 'Back', array('title' => 'Back to Settings'));
+?></p>

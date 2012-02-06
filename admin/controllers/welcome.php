@@ -24,7 +24,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->model('Ledger_model');
 		$this->load->library('accountlist');
-		$this->template->set('page_title', 'Welcome to Webzash');
+        xDeveloperToolBars::getDefaultToolBar();
+		$this->template->set('page_title', 'Welcome');
 
 		/* Bank and Cash Ledger accounts */
 		$this->db->from('ledgers')->where('type', 1);

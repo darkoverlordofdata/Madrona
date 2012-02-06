@@ -20,7 +20,7 @@
 	{
 		$pagination_counter = $this->config->item('row_count');
 		$page_count = (int)$this->uri->segment(5);
-		$page_count = $this->input->xss_clean($page_count);
+		//$page_count = $this->input->xss_clean($page_count);
 		if ( ! $page_count)
 			$page_count = "0";
 		$config['base_url'] = site_url('report/reconciliation/' . $reconciliation_type . '/' . $ledger_id);

@@ -18,7 +18,8 @@ class Backup extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-		$this->load->model('Setting_model');
+		$this->load->model('Se        xDeveloperToolBars::getDefaultToolBar();
+		tting_model');
 
 		/* Check access */
 		if ( ! check_access('change account settings'))

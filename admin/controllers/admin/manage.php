@@ -18,6 +18,7 @@ class Manage extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 
 		/* Check access */
 		if ( ! check_access('administer'))
@@ -52,7 +53,7 @@ class Manage extends CI_Controller {
 			}
 		}
 
-		$this->template->load('admin_template', 'admin/manage/index', $data);
+		$this->template->load('template', 'admin/manage/index', $data);
 		return;
 	}
 
@@ -128,7 +129,7 @@ class Manage extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/manage/add', $data);
+			$this->template->load('template', 'admin/manage/add', $data);
 			return;
 		}
 		else
@@ -147,7 +148,7 @@ class Manage extends CI_Controller {
 			if (get_file_info($ini_file))
 			{
 				$this->messages->add('Account with same label already exists.', 'error');
-				$this->template->load('admin_template', 'admin/manage/add', $data);
+				$this->template->load('template', 'admin/manage/add', $data);
 				return;
 			}
 
@@ -160,7 +161,7 @@ class Manage extends CI_Controller {
 			{
 				$this->messages->add('Failed to add account settings file. Check if "' . $ini_file . '" file is writable.', 'error');
 				$this->messages->add('You can manually create a text file "' . $ini_file . '" with the following content :<br /><br />' . $con_details_html, 'error');
-				$this->template->load('admin_template', 'admin/manage/add', $data);
+				$this->template->load('template', 'admin/manage/add', $data);
 				return;
 			} else {
 				$this->messages->add('Added account to list of active accounts.', 'success');
@@ -275,7 +276,7 @@ class Manage extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->messages->add(validation_errors(), 'error');
-			$this->template->load('admin_template', 'admin/manage/edit', $data);
+			$this->template->load('template', 'admin/manage/edit', $data);
 			return;
 		}
 		else
@@ -297,7 +298,7 @@ class Manage extends CI_Controller {
 			{
 				$this->messages->add('Failed to edit account settings file. Check if "' . $ini_file . '" file is writable.', 'error');
 				$this->messages->add('You can manually update the text file "' . $ini_file . '" with the following content :<br /><br />' . $con_details_html, 'error');
-				$this->template->load('admin_template', 'admin/manage/edit', $data);
+				$this->template->load('template', 'admin/manage/edit', $data);
 				return;
 			} else {
 				$this->messages->add('Updated account settings.', 'success');

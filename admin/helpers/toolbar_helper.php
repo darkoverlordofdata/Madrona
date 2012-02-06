@@ -22,8 +22,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  {
         function getDefaultToolBar() {
 
-              JToolBarHelper::title( 'Accounting', 'generic.png' );
-              JToolBarHelper::preferences(JRequest::getCmd('option'), '500');
+//              JToolBarHelper::title( 'Accounting', 'generic.png' );
+//              JToolBarHelper::preferences(JRequest::getCmd('option'), '500');
         }
  }
 ?>

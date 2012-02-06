@@ -18,6 +18,7 @@ class Ledger extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        xDeveloperToolBars::getDefaultToolBar();
 		$this->load->model('Ledger_model');
 		$this->load->model('Group_model');
 		return;
@@ -180,7 +181,7 @@ class Ledger extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1)
 		{
@@ -360,7 +361,7 @@ class Ledger extends CI_Controller {
 		}
 
 		/* Checking for valid data */
-		$id = $this->input->xss_clean($id);
+		//$id = $this->input->xss_clean($id);
 		$id = (int)$id;
 		if ($id < 1)
 		{
