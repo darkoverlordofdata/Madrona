@@ -12,16 +12,17 @@
   <version>0.0.6</version>
   <releaseDate>{releaseDate}</releaseDate>
   <description>Madrona CRM Plus</description>
-  <installfile />
-  <uninstallfile />
+  <installfile>install.madrona.php</installfile>
+  <uninstallfile>uninstall.madrona.php</uninstallfile>
   <install>
     <sql>
-      <files driver="mysql" charset="utf8">install.sql</files>
+      <files driver="mysql" charset="utf8">sql/create_schema.sql</files>
+      <files driver="mysql" charset="utf8">sql/install.sql</files>
     </sql>
   </install>
   <uninstall>
     <sql>
-      <files driver="mysql" charset="utf8">uninstall.sql</files>
+      <files driver="mysql" charset="utf8">sql/drop_schema.sql</files>
     </sql>
   </uninstall>
   <update>
@@ -45,18 +46,11 @@
     <filename>index.html</filename>
     <filename>madrona.php</filename>
   </files>
-  
   <languages folder="site/language">
     <language tag="index">english/index.html</language>
   </languages>
-  
-  <media destination="com_helloworld" folder="media">
-	<filename>index.html</filename>
-	<folder>images</folder>
-  </media>
-  
   <administration>
-    <menu img="../media/com_madrona/images/tux-16x16.png" link="option=com_madrona">Madrona</menu>
+    <menu img="component" link="option=com_madrona">Madrona</menu>
     <files folder="admin">
       <folder>assets</folder>
       <folder>backups</folder>
@@ -71,6 +65,7 @@
       <folder>libraries</folder>
       <folder>logs</folder>
       <folder>models</folder>
+      <folder>sql</folder>
       <folder>third_party</folder>
       <folder>views</folder>
       <folder>system</folder>
@@ -80,7 +75,6 @@
       <filename>db-update.txt</filename>
       <filename>index.html</filename>
       <filename>install.madrona.php</filename>
-      <filename>install.sql</filename>
       <filename>license.txt</filename>
       <filename>madrona-agpl-3.0.txt</filename>
       <filename>madrona-copyright.txt</filename>
@@ -90,11 +84,9 @@
       <filename>TODO.md</filename>
       <filename>TODO.txt</filename>
       <filename>uninstall.madrona.php</filename>
-      <filename>uninstall.sql</filename>
       <filename>webzash-agpl-3.0.txt</filename>
       <filename>webzash-copyright.txt</filename>
     </files>
-    
     <languages folder="admin/language">
       <language tag="index">english/index.html</language>
     </languages>

@@ -44,7 +44,7 @@ class Update extends CI_Controller {
 			$db_config['username'] = $active_account['db_username'];
 			$db_config['password'] = $active_account['db_password'];
 			$db_config['dbdriver'] = "mysql";
-			$db_config['dbprefix'] = "";
+			$db_config['dbprefix'] = "webzash_";
 			$db_config['pconnect'] = FALSE;
 			$db_config['db_debug'] = FALSE;
 			$db_config['cache_on'] = FALSE;

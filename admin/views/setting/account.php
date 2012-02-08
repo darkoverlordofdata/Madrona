@@ -1,5 +1,5 @@
 <?php
-	echo form_open('setting/account');
+    echo form_open('setting/account');
 
     echo '<div id="left-col">';
 

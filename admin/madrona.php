@@ -40,6 +40,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 //        define('xLAYOUT_VIEW',$xview."/tmpl/".$xlayout);
 
 define('COMPONENT_NAME', 'com_madrona');
+define('DB_PREFIX', 'webzash_');
 
 /*
  *---------------------------------------------------------------

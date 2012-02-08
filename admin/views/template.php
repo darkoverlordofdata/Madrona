@@ -14,23 +14,37 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 $doc = JFactory::getDocument();
 
-$doc->addStyleSheet(com_url() . 'assets/css/style.css');
-$doc->addStyleSheet(com_url() . 'assets/css/tables.css');
-$doc->addStyleSheet(com_url() . 'assets/css/custom.css');
-$doc->addStyleSheet(com_url() . 'assets/css/menu.css');
-$doc->addStyleSheet(com_url() . 'assets/css/jquery.datepick.css');
-$doc->addStyleSheet(com_url() . 'assets/css/thickbox.css');
+$doc->addStyleSheet(asset_url() . 'css/style.css');
+$doc->addStyleSheet(asset_url() . 'css/tables.css');
+$doc->addStyleSheet(asset_url() . 'css/custom.css');
+$doc->addStyleSheet(asset_url() . 'css/menu.css');
+$doc->addStyleSheet(asset_url() . 'css/jquery.datepick.css');
+$doc->addStyleSheet(asset_url() . 'css/thickbox.css');
+// css set in controller:
 
-$doc->addScript(com_url() . 'assets/js/jquery.min.js">');
-$doc->addScript(com_url() . 'assets/js/jquery.datepick.js');
-$doc->addScript(com_url() . 'assets/js/custom.js');
-$doc->addScript(com_url() . 'assets/js/hoverIntent.js');
-$doc->addScript(com_url() . 'assets/js/superfish.js');
-$doc->addScript(com_url() . 'assets/js/supersubs.js');
-$doc->addScript(com_url() . 'assets/js/thickbox-compressed.js');
-$doc->addScript(com_url() . 'assets/js/ezpz_tooltip.min.js');
-$doc->addScript(com_url() . 'assets/js/shortcutslibrary.js');
-$doc->addScript(com_url() . 'assets/js/shortcuts.js');
+if (isset($add_css)) {
+    foreach ($add_css as $id => $row) {
+        $doc->addStyleSheet(asset_url() . $row);
+    }
+}
+
+$doc->addScript(asset_url() . 'js/jquery.min.js">');
+$doc->addScript(asset_url() . 'js/jquery.datepick.js');
+$doc->addScript(asset_url() . 'js/custom.js');
+$doc->addScript(asset_url() . 'js/hoverIntent.js');
+$doc->addScript(asset_url() . 'js/superfish.js');
+$doc->addScript(asset_url() . 'js/supersubs.js');
+$doc->addScript(asset_url() . 'js/thickbox-compressed.js');
+$doc->addScript(asset_url() . 'js/ezpz_tooltip.min.js');
+$doc->addScript(asset_url() . 'js/shortcutslibrary.js');
+$doc->addScript(asset_url() . 'js/shortcuts.js');
+// javascript set in controller:
+
+if (isset($add_javascript)) {
+    foreach ($add_javascript as $id => $row) {
+        $doc->addScript(asset_url() . $row);
+    }
+}
 
 $data_account_date_format = $this->config->item('account_date_format');
 $data_account_fy_start = date_mysql_to_php($this->config->item('account_fy_start'));
@@ -203,7 +217,7 @@ JAVASCRIPT
                     <li><?php echo anchor('setting/printer', 'Printer Settings', array('title' => 'Printer Settings')); ?></li>
                     <li><?php echo anchor('tag', 'Tags', array('title' => 'Tags')); ?></li>
                     <li><?php echo anchor('setting/entrytypes', 'Entry Types', array('title' => 'Entry Types')); ?></li>
-                    <li><?php echo anchor('setting/backup', 'Download Backup', array('title' => 'D0wnload Backup')); ?></li>
+                    <li><?php echo anchor('setting/backup', 'Download Backup', array('title' => 'Download Backup')); ?></li>
                 </ul>
             </li>
             

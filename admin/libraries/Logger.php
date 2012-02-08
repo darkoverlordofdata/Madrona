@@ -35,7 +35,8 @@ class Logger
 		}
 		$data['host_ip'] = $CI->input->ip_address();
 		$data['user'] = $CI->session->userdata('user_name');
-		$data['url'] = uri_string();
+		$data['url'] = $CI->uri->uri_string();
+		//uri_string();
 		$data['user_agent'] = $CI->input->user_agent();
 		$data['message_title'] = $title;
 		$data['message_desc'] = $desc;

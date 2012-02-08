@@ -174,21 +174,6 @@ $config['directory_trigger'] = 'd'; // experimental not currently in use
 
 /*
 |--------------------------------------------------------------------------
-| CodeIgniter Trigger;
-|--------------------------------------------------------------------------
-|
-| Query strings must be enabled for Joomla components.
-| But this breaks SEF URLs. The codeigniter_trigger treats the remainder
-| of the URL as a standard CodeIgniter segmented URL:
-|
-| ...index.php?option=com_name&ci=who/what/where/
-|| Directory trigger is not currently used, so we will hijack it
-|
-*/
-$config['codeigniter_trigger'] = 'ci'; // NOW codeigniter_trigger!
-
-/*
-|--------------------------------------------------------------------------
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |

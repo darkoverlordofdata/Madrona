@@ -18,8 +18,7 @@ class Backup extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-		$this->load->model('Se        xDeveloperToolBars::getDefaultToolBar();
-		tting_model');
+        $this->load->model('Setting_model');
 
 		/* Check access */
 		if ( ! check_access('change account settings'))
@@ -48,7 +47,22 @@ class Backup extends CI_Controller {
 		$backup_filename = "backup" . date("dmYHis") . ".gz";
 
 		/* Backup your entire database and assign it to a variable */
-		$backup_data =& $this->dbutil->backup();
+		//$backup_tables =& $this->dbutil->list_databases();
+		//$backup_data =& $this->dbutil->backup(array_filter($backup_tables, array($this, 'table_filter')));
+
+        $backup_tables = array(
+        
+            'webzash_entries',
+            'webzash_entry_items',
+            'webzash_entry_types',
+            'webzash_groups',
+            'webzash_ledgers',
+            'webzash_logs',
+            'webzash_settings',
+            'webzash_tags',
+            
+        );
+        $backup_data =& $this->dbutil->backup($backup_tables);
 
 		/* Write the backup file to server */
 		if ( ! write_file($this->config->item('backup_path') . $backup_filename, $backup_data))
@@ -64,6 +78,11 @@ class Backup extends CI_Controller {
 		redirect('setting');
 		return;
 	}
+
+    function table_filter($table_name) {
+        
+        return (strpos($table_name, DB_PREFIX) === 0);
+    }
 }
 
 /* End of file backup.php */

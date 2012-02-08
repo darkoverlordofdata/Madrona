@@ -60,9 +60,12 @@ if ( ! function_exists('form_open'))
 		{
 			$attributes = 'method="post"';
 		}
+        log_message('debug',"form_open action = $action");
 
 		$action = ( strpos($action, '://') === FALSE) ? $CI->config->site_url($action) : $action;
 
+        log_message('debug',"form_open action = $action");
+        
 		$form = '<form action="'.$action.'"';
 
 		$form .= _attributes_to_string($attributes, TRUE);

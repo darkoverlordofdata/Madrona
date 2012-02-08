@@ -138,7 +138,7 @@ class Tag extends CI_Controller {
 
 	}
 
-	function edit($id = 0)
+	function edit($id)
 	{
 		$this->template->set('page_title', 'Edit Tag');
 

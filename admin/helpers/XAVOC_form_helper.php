@@ -1,4 +1,66 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+/*************************************************************************
+ * com_madrona - CRM Plus
+ *
+ *  built using xCIDeveloper - Xavoc International
+ *************************************************************************
+ * author     Bruce Davidson
+ * copyright  Copyright (C) 2012 DarkOverlordOfData. All Rights Reserved.
+ * license    http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * website    http://darkoverlordofdata.blogspot.com
+ *************************************************************************/
+// no direct access
+defined( '_JEXEC' ) or die( 'Restricted access' );
+?><?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * Form Declaration - Override
+ *
+ * Creates the opening portion of the form.
+ *
+ * @access  public
+ * @param   string  the URI segments of the form destination
+ * @param   array   a key/value pair of attributes
+ * @param   array   a key/value pair hidden data
+ * @return  string
+ */
+if ( ! function_exists('form_open'))
+{
+    function form_open($action = '', $attributes = '', $hidden = array())
+    {
+        $CI =& get_instance();
+
+        if ($attributes == '')
+        {
+            $attributes = 'method="post"';
+        }
+
+        //  Reformat action url for Joomla:
+        $action = ci2Joomla( ( strpos($action, '://') === FALSE) ? $CI->config->site_url($action) : $action);
+
+        //log_message('debug',"form_open action = $action");
+        
+        $form = '<form action="'.$action.'"';
+
+        $form .= _attributes_to_string($attributes, TRUE);
+
+        $form .= '>';
+
+        // CSRF
+        if ($CI->config->item('csrf_protection') === TRUE)
+        {
+            $hidden[$CI->security->csrf_token_name] = $CI->security->csrf_hash;
+        }
+
+        if (is_array($hidden) AND count($hidden) > 0)
+        {
+            $form .= sprintf("\n<div class=\"hidden\">%s</div>", form_hidden($hidden));
+        }
+
+        return $form;
+    }
+}
+
 
 if ( ! function_exists('form_dropdown_dc'))
 {
@@ -95,6 +157,8 @@ if ( ! function_exists('form_input_ledger'))
 		return $form;
 	}
 }
+
+
 
 /* End of file MY_form_helper.php */
 /* Location: ./system/application/helpers/MY_form_helper.php */

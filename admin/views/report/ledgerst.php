@@ -166,6 +166,10 @@
 		echo "</table>";
 	}
 ?>
-<?php if ( ! $print_preview) { ?>
+<?php if ( ! $print_preview) {
+    echo '<p />';
+    echo anchor('report', 'Back', array('title' => 'Back to Reports'));
+     
+?>
 <div id="pagination-container"><?php echo $this->pagination->create_links(); ?></div>
 <?php } ?>

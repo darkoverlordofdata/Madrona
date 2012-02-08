@@ -239,4 +239,6 @@
 
 	echo "</tr>";
 	echo "</table>";
+    echo '<p />';
+    echo anchor('report', 'Back', array('title' => 'Back to Reports'));
 

@@ -18,4 +18,16 @@ Madrona Version 0.0.3 - 1/31/2012
 
 Madrona Version 0.0.4 - 2/2/2012
 ---
-	* Shanged startup to use the Joomla database connection and ignore ini files. 
+	* Changed startup to use the Joomla database connection and ignore ini files. 
+
+Madrona Version 0.0.5 - 2/5/2012
+---
+	* Remove database param entry from screens.
+	* Remove admin_template and user_template, consolidate all in template.
+	* Flatten menu so everything is one panel.
+	
+Madrona Version 0.0.6 2/8/2012
+---
+	* Integrate SQL script to create and load db into install process.
+	* Load UCOA Version 3 as default chart of accounts.
+	* Move menu to JToolbar area.

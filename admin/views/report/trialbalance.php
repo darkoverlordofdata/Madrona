@@ -56,4 +56,6 @@
 		echo "<img src=\"" . asset_url() . "images/icons/nomatch.png\">";
 	echo "</td><td>Dr " . convert_cur($temp_dr_total) . "</td><td>Cr " . convert_cur($temp_cr_total) . "</td></tr>";
 	echo "</table>";
+    echo '<p />';
+    echo anchor('report', 'Back', array('title' => 'Back to Reports'));
 

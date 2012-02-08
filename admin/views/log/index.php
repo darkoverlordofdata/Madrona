@@ -15,3 +15,5 @@
 		echo "</tr>";
 	}
 	echo "</table>";
+    echo '<p />';
+    echo anchor('', 'Back', array('title' => 'Back to Dashboard'));
