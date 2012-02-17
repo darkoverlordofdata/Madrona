@@ -50,7 +50,7 @@
     <language tag="index">english/index.html</language>
   </languages>
   <administration>
-    <menu img="component" link="option=com_madrona">Madrona</menu>
+    <menu img="components/com_madrona/images/tux-16x16.png" link="option=com_madrona">Madrona</menu>
     <files folder="admin">
       <folder>assets</folder>
       <folder>backups</folder>
@@ -61,6 +61,7 @@
       <folder>errors</folder>
       <folder>helpers</folder>
       <folder>hooks</folder>
+      <folder>images</folder>
       <folder>language</folder>
       <folder>libraries</folder>
       <folder>logs</folder>

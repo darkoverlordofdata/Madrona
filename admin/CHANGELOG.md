@@ -31,3 +31,7 @@ Madrona Version 0.0.6 2/8/2012
 	* Integrate SQL script to create and load db into install process.
 	* Load UCOA Version 3 as default chart of accounts.
 	* Move menu to JToolbar area.
+
+Madrona Version 0.1 2/16/2012
+---
+	* Added icon to menu, tweaked manifest to smooth install.
